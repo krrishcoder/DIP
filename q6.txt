@@ -1,0 +1,137 @@
+Q - 6 
+geometric transformation of image 
+
+ 
+ 
+a) – translation 
+
+ 
+
+ 
+ 
+img = imread("bird.png") 
+
+ 
+ 
+subplot(2,2,1) 
+ 
+
+title("original") 
+
+ 
+imshow(img) 
+
+ 
+
+ 
+ 
+//translation matrix 
+ 
+
+// 1  0  0 
+
+ 
+// 0  1  0 
+ 
+
+// 70 100 1 
+
+ 
+
+ 
+mat = [1 0 0; 0 1 0; 70 70 1] 
+ 
+
+ 
+tr = imtransform(img,mat, 'affine') 
+ 
+
+ 
+subplot(2,2,2) 
+ 
+
+title("translation") 
+
+ 
+imshow(tr) 
+
+
+
+
+//-------------------------------------------------------------------
+
+B) - scaling
+
+//scaling matrix 
+
+ 
+// 2 0 0 
+
+ 
+// 0 4 0 
+
+ 
+// 0 0 1 
+
+ 
+
+ 
+ 
+mat1 =[2 0 0;0 4 0; 0 0 1] 
+ 
+
+scaled = imtransform(img,mat1, 'affine') 
+
+ 
+title("scaled") 
+ 
+
+subplot(2,2,3) 
+
+ 
+imshow(scaled)
+
+//---------------------------------------------------------------------
+
+ C) - rotation 
+ 
+
+ 
+
+// rotation matrix 
+
+ 
+
+// cos(120) , -sin(120), 0 
+ 
+
+// sin(120) , cos(120), 0 
+ 
+
+// 0        , 0       , 1 
+ 
+
+ 
+
+ 
+mat2 = [cos(120) -sin(120) 0 ;sin(120) cos(120) 0 ;0 0 1  ] 
+
+ 
+rotated = imtransform(img,mat2, 'affine') 
+
+ 
+title("rotated") 
+subplot(2,2,4) 
+imshow(rotated) 
+
+
+
+
+
+
+
+
+
+
+
+
