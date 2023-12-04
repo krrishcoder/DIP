@@ -1,0 +1,93 @@
+> Write and execute programs to use spatial low pass and high pass filters 
+
+ 
+
+LOW PASS FILTER----------------------------------------------------------------- 
+
+ 
+
+ 
+
+img = imread('bird.png'); 
+
+ 
+gray = rgb2gray(img); 
+
+ 
+
+ 
+ 
+subplot(2,1,1); 
+ 
+
+imshow(gray) 
+ 
+
+ 
+
+ 
+filter = fspecial('average',3); 
+ 
+
+ 
+avg_ = imfilter(gray, filter); 
+
+ 
+ 
+
+ 
+ 
+subplot(2,1,2); 
+
+ 
+imshow(avg_) 
+
+
+/---------------------------------------------------------------------
+----------------------------------------- 
+
+HIGH PASS FILTER 
+
+ 
+
+img = imread('k.jpg'); 
+
+ 
+
+ 
+gray = rgb2gray(img); 
+
+ 
+ 
+subplot(2,1,1); 
+ 
+imshow(gray)  
+ 
+filter = fspecial('laplacian'); 
+
+ 
+ 
+lap = imfilter(gray,filter); 
+
+ 
+
+ 
+ 
+subplot(2,1,2); 
+
+ 
+imshow(lap); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
