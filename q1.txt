@@ -1,0 +1,162 @@
+B) Read and display image in SCILAB/MATLAB 
+
+  
+
+img=imread('bird.png'); 
+
+imshow(img); 
+
+
+//------------------------------------------------------------------
+C)Resize given image 
+
+  
+
+img1=imresize(img,[100,100],'bicubic'); 
+
+or 
+
+img1=imresize(img,1.5); 
+
+Or 
+
+img1=imresize(img,[100,100],'bilinear'); 
+
+Or 
+
+img1=imresize(img,[100,100]); 
+
+//------------------------------------------------------------------------------
+
+
+D) Convert given color image into gray-scale image 
+
+  
+
+gray=rgb2gray(img)  
+
+  
+
+Or 
+
+  
+
+img=imread('mona.png');[M,N]=size(img); 
+
+gray=zeros(M,N,'uint8'); 
+
+for i=1:M 
+
+for j=1:N 
+
+gray(i,j)= uint8 (double ( img(i,j,1) ) *0.2989 )+ uint8( double ( img (i,j,2) )*0.5870)+ uint8 ( double ( img (i,j,3))*0.114); 
+
+end 
+
+end 
+
+
+//---------------------------------------------------------------------------------------
+E.)
+
+Convert given color/gray-scale image into black & white image. 
+
+  
+
+bw_img=zeros(M,N,'uint8'); 
+
+for i=1:M 
+
+For j=1:N 
+
+If gray(i,j) >= 120 then  
+
+bw_img(i,j) = 255; 
+
+else 
+
+ bw_img(i,j)=0; 
+
+end 
+
+end 
+
+end 
+
+
+
+//-------------------------------------------------------------------
+
+
+
+F) 
+
+Draw image profile 
+
+img= imread('bird.png'); 
+
+Improfile(img) 
+
+//-----------------------------------------------------------------------------
+
+G) 
+
+Separate color image in three R G & B planes 
+
+img=imread('bird.png'); 
+
+[M,N]=size(img); 
+
+R=zeros(M,N,3,'uint8'); 
+
+G=zeros(M,N,3,'uint8'); 
+
+B=zeros(M,N,3,'uint8'); 
+
+  
+
+R(:,:,1)=img(:,:,1); 
+
+G(:,:,2)=img(:,:,2); 
+
+B(:,:,3)=img(:,:,3); 
+
+
+//--------------------------------------------------------------------
+  
+
+H)Create color image using R, G and B three separate planes 
+
+  
+
+//note here R, G ,B Plane was used from above question 
+
+  
+
+RGB=zeros(M,N,3,'uint8'); 
+
+For i=1:M 
+
+For j=1:N 
+
+RGB(i,j,1) = R(i,j,1); 
+
+RGB(i,j,2) = G(i,j,2); 
+
+RGB(i,j,3) = B(i,j,3); 
+
+end 
+
+end 
+
+//--------------------------------------------------------------------------
+
+J) 
+
+Write given 2-D data in image file. 
+
+imwrite(img,'bird01.png'); 
+
+
+
+
