@@ -1,0 +1,154 @@
+A) Addition of two images 
+
+  
+
+img1 = imread('bird.png'); 
+
+Img2   = imread('mona.png'); 
+
+[M,N] = size(img2); 
+
+  
+
+img_add = imadd(img1 , img); 
+
+//or 
+
+img_added = zeros(M,N,3,'uint8'); 
+
+  
+
+for i=1:M 
+
+for j=1:N 
+
+for z=1:3  
+
+If (uint16(img(i,j,z)) + img1(i,j,z)) >= 255 then  //255 +200 --> 
+
+img_added(i,j,z)   = 255; 
+
+else 
+
+img_added(i,j,z) = img(i,j,z) + img1(i,j,z); 
+
+end 
+
+end 
+
+end 
+
+disp(i) 
+
+end 
+
+
+
+
+
+//------------------------------------------------------------------------
+
+B) Subtract one image from other image 
+
+  
+
+img1 = imread('bird.png'); 
+
+img   = imread('mona.png'); 
+
+[M,N]=size(img1); 
+
+  
+
+img = zeros(M,N,3,'uint8'); 
+
+img(:,:,1)=img2(:,:,1); 
+
+img(:,:,2)=img2(:,:,2); 
+
+img(:,:,3)=img2(:,:,3); 
+
+  
+
+img_s = zeros(M,N,3,'uint8'); 
+
+  
+
+for i = 1:M 
+
+for j = 1:N 
+
+for z = 1:3 
+
+If (int16(img(i,j,z)) - int16(img1(i,j,z))) <= 0 then 
+
+img_s(i,j,z) = 0; 
+
+else  
+
+img_s(i,j,z)= int16(img(i,j,z)) - int16(img1(i,j,z)) 
+
+end 
+
+end 
+
+end 
+
+end 
+
+  
+
+imshow(img_s); 
+
+  
+
+// 139 - 172 = 0 
+
+// 73  - 104 = 0 
+
+// 121 - 61  = 60 
+
+
+
+//--------------------------------------------------------------
+
+
+C) Calculate mean value of image 
+
+  
+
+img1=imread('bird.png'); 
+
+[M,N]=size(img1); 
+
+gray_img=rgb2gray(img1); 
+
+ans=0; 
+
+  
+
+for x=1:M  
+
+for j=1:N 
+
+ans = (uint32(ans) + gray_img(x,j)); 
+
+end 
+
+ end 
+
+  
+
+avg=double(ans)/(M*N) 
+
+disp(avg); 
+
+
+
+
+
+
+
+
+
+  
